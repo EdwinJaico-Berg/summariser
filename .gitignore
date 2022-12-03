@@ -1,0 +1,6 @@
+# General files
+__pycache__/
+
+# Private files
+api.py
+notes.py

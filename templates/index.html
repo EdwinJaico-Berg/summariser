@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="container-sm p-3", style="width: 300px;">
+        <div class="container mx-auto pretty-container">
+            <img src="../static/images/icons8-search.svg">
+            <input class="search-bar" type="url" placeholder="Insert URL...">
+        </div>
+    </div>
+    <div id="summary-output" class="container p-5 pretty-container">
+        <p>Bullet points will be returned here</p>
+    </div>
+{% endblock %}

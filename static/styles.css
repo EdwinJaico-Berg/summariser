@@ -1,0 +1,18 @@
+.search-bar {
+    padding: 10px;
+    border: 0;
+}
+
+.pretty-container {
+    box-shadow:5px 10px 8px rgba(0,0,0,0.2);
+    border-radius: 25px;
+}
+
+#summary-output {
+    margin-top: 25px;
+    background-color: rgb(248, 249, 250);
+}
+
+*:focus {
+    outline: 0 !important;
+}

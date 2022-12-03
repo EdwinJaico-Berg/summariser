@@ -1,0 +1,1 @@
+Web app that is able to summarise a text from a given url.
