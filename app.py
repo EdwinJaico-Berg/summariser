@@ -19,5 +19,10 @@ def index():
 
         return render_template("index.html", bullet_points=bullet_points)
 
+@app.route("/text")
+def text():
+    return render_template("text.html")
+
+
 if __name__ == '__main__':
     app.run()
