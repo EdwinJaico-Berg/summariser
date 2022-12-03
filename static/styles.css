@@ -16,3 +16,12 @@
 *:focus {
     outline: 0 !important;
 }
+
+.search-button {
+    margin: 10px 0;
+    height: 27px;
+}
+
+#search-container {
+    height: 50px;
+}

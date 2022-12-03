@@ -14,7 +14,7 @@ def summarise_webpage(url: str) -> None:
     summary_response = openai.Completion.create(
         engine="text-davinci-002",
         prompt=f"Summarize the following text:\n{text}",
-        max_tokens=1024,
+        max_tokens=4096,
         temperature=0.5,
         top_p=1,
         frequency_penalty=0,
