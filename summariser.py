@@ -1,5 +1,6 @@
 import openai
 import requests
+import nltk
 from bs4 import BeautifulSoup
 
 from api import API_KEY
@@ -27,6 +28,8 @@ def summarise_text(text: str) -> list:
         return "Sorry there has been an issue. Please reduce the size of the input text"
 
     summary = summary_response["choices"][0]["text"]
+
+    summary = clean_output(summary)
 
     return summary
 
@@ -60,4 +63,30 @@ def summarise_webpage(url: str) -> list:
     return summarise_text(text)
 
 def clean_output(text: str) -> str:
-    pass
+    """Cleans the text of typical errors."""
+    # Remove starting colon
+    if not text[0].isalpha():
+        text = text[1:]
+    
+    # Remove white spaces
+    text = text.strip()
+
+    # Remove incomplete sentences
+    # These will only occur at the end of the summary
+    ending_punctuation = ["!", "?", "."]
+
+    sentences = nltk.sent_tokenize(text)
+
+    remove = True
+    for punctuation in ending_punctuation:
+        if punctuation in sentences[-1]:
+            remove = False
+
+    if remove:
+        sentences.pop(-1)
+
+    text = " ".join(sentence for sentence in sentences)
+
+    return text
+    
+    
