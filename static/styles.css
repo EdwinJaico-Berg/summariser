@@ -45,3 +45,17 @@
 textarea {
     resize: none;
 }
+
+.submit-button {
+	background: #B2BEB5;
+	color: #FFFFFF;
+	border: 1px solid #eee;
+	border-radius: 25px;
+}
+
+.submit-button:hover {
+	background: #D3D3D3;
+	color: #FFFFFF;
+	border: 1px solid #eee;
+	border-radius: 20px;
+}

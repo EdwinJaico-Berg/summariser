@@ -8,18 +8,27 @@
     <div class="container-sm p-3", style="text-align: center;">
             <p>Enter text to be summarised:</p>
     </div>
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-6 grey">
-                <div class="container p-5 pretty-container text-box">
-                    <textarea type="text" id="input-text" placeholder="Enter text here..." rows="16"></textarea>
+    <form action="/text" method="post">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-6 grey">
+                    <div class="container p-5 pretty-container text-box">
+                            <textarea type="text" id="input-text" placeholder="Enter text here..." rows="15" name="text"></textarea>
+                            <button class="submit-button" type="submit">Submit</button>
+                    </div>
                 </div>
-            </div>
-            <div class="col-6 grey">
-                <div class="container p-5 pretty-container text-box text-muted" style="text-align: left;">
-                    Outupt will be displayed here...
+                <div class="col-6 grey">
+                    {% if summary %}
+                        <div class="container p-5 pretty-container text-box" style="text-align: left;">
+                            <p>{{ summary }}</p>
+                        </div>
+                    {% else %}
+                        <div class="container p-5 pretty-container text-box text-muted" style="text-align: left;">
+                            Outupt will be displayed here...
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 {% endblock %}

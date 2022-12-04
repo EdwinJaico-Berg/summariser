@@ -20,16 +20,12 @@
         </div>
     </form>
     <div id="url-summary-output" class="container p-5 pretty-container">
-        {% if bullet_points %}
-            <p></p>
-            {% for bullet_point in bullet_points%}
-                <p>{{ bullet_point }}</p>
-            {% endfor %}
+        {% if summary %}
+            <p>{{ summary }}</p>
         {% else %}
             <p><b>How it works:</b></p>
             <p>
-                Enter in a URL containing text (i.e. https://en.wikipedia.org/wiki/IKEA). A list of bullet points
-                will be returned that summarises the text entered. 
+                Enter in a URL containing text (i.e. https://www.bbc.co.uk/sport/football/63803248) and a summary of the text will be returned. 
             </p>
         {% endif %}
     </div>

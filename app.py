@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from summariser import summarise_webpage
+from summariser import summarise_webpage, summarise_text
 
 app = Flask(__name__)
 
@@ -9,19 +9,23 @@ def index():
         
         url = request.form.get("url")
 
-        bullet_points = summarise_webpage(url)
+        summary = summarise_webpage(url)
 
-        return render_template("index.html", bullet_points=bullet_points)
+        return render_template("index.html", summary=summary)
     
-    else:
+    return render_template("index.html", summary=None)
 
-        bullet_points = None
-
-        return render_template("index.html", bullet_points=bullet_points)
-
-@app.route("/text")
+@app.route("/text", methods=["GET", "POST"])
 def text():
-    return render_template("text.html")
+    if request.method == "POST":
+
+        text = request.form.get("text")
+
+        summary = summarise_text(text)
+
+        return render_template("text.html", summary=summary)
+
+    return render_template("text.html", summary=None)
 
 
 if __name__ == '__main__':
