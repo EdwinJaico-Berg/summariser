@@ -7,6 +7,7 @@ from api import API_KEY
 
 openai.api_key = API_KEY
 
+
 def summarise_text(text: str) -> list:
     """Summarises the content of a given text"""
     # Ensure input is valid
@@ -22,7 +23,7 @@ def summarise_text(text: str) -> list:
             max_tokens=100,
             top_p=1,
             frequency_penalty=0.0,
-            presence_penalty=1
+            presence_penalty=1,
         )
     except:
         return "Sorry there has been an issue. Please reduce the size of the input text"
@@ -33,9 +34,10 @@ def summarise_text(text: str) -> list:
 
     return summary
 
+
 def summarise_webpage(url: str) -> list:
     """A function that uses openai's GPT-3 to summarize the contents of a given url."""
-    # Ensure that input is valid 
+    # Ensure that input is valid
     if not url:
         return None
     # Read the text
@@ -44,7 +46,7 @@ def summarise_webpage(url: str) -> list:
     soup = BeautifulSoup(html, "html.parser")
 
     # Remove script and style elements
-    for element in soup(['script', 'style']):
+    for element in soup(["script", "style"]):
         element.extract()
 
     # Get text
@@ -54,20 +56,20 @@ def summarise_webpage(url: str) -> list:
     lines = (line.strip() for line in text.splitlines())
 
     # Break multi-headlines into a line each
-    chunks = (phrase.strip() for line in lines 
-              for phrase in line.split("  "))
+    chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
 
     # Drop blank lines
-    text = '\n'.join(chunk for chunk in chunks if chunk)
+    text = "\n".join(chunk for chunk in chunks if chunk)
 
     return summarise_text(text)
+
 
 def clean_output(text: str) -> str:
     """Cleans the text of typical errors."""
     # Remove starting colon
     if not text[0].isalpha():
         text = text[1:]
-    
+
     # Remove white spaces
     text = text.strip()
 
@@ -88,5 +90,3 @@ def clean_output(text: str) -> str:
     text = " ".join(sentence for sentence in sentences)
 
     return text
-    
-    
