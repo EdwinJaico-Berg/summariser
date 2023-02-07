@@ -2,3 +2,4 @@ flask
 openai
 beautifulsoup4
 nltk
+gunicorn
