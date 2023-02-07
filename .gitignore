@@ -1,6 +1,7 @@
 # General files
 __pycache__/
 .DS_Store
+.vscode/
 
 # Private files
 api.py
