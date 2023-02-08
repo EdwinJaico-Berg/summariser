@@ -23,6 +23,19 @@ Using OpenAI's API we have built a web app that is able to summarise a text from
 
 <p align="right">(<a href="#readme-top">Back to top</a>)</p>
 
+<!-- USAGE -->
+## Usage
+
+To get started with this project, pull the image from docker using the following command:
+
+<code> docker pull ejberg/summariser:latest </code>
+
+Once you have downloaded the image, build it with the following command:
+
+<code>docker run --rm -d -p 5000:5000/tcp ejberg/summariser:latest</code>
+
+It should be noted that an API key is required for this program to run.
+
 <!-- CONTACT -->
 ## Contact
 
